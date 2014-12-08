@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+<name>Post by Flickr Tag</name>
+<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+<author url="http://skippy.net/">Scott Merrill</author>
+<version>1.0</version>
+<url>https://github.com/skpy/habari-pbft</url>
+<description><![CDATA[Create posts from tagged Flickr photos.]]></description>
+<copyright>2014</copyright>
+<guid>04FA396C-7E42-11E4-B086-85DDF5E17625</guid>
+</pluggable>
