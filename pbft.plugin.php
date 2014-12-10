@@ -49,10 +49,18 @@ class PBFT extends Plugin
       $guid = (int) substr($image['guid'], 7);
       # make sure we haven't created a post for this photo before
       $post = Post::get( array( 'info' => array( 'guid' => $guid )));
-      if ( $post ) { continue; }
+      if ( $post ) { 
+        continue; 
+      }
       # save the photo to our local storage
+      $ext = '.' . pathinfo($image['l_url'], PATHINFO_EXTENSION); 
+      $image_file = Site::get_dir('user') . '/files/' . $guid . $ext;
+      $image_url = Site::get_url('user') . '/files/' . $guid . $ext;
+      if ( ! copy($image['l_url'], $image_file) ) {
+        continue;
+      }
       # create a new post
-      $content = '<p><img src="' . $image['l_url'] . '" /></p>';
+      $content = '<p><img src="' . $image_url . '" /></p>';
       $content .= '<p>' . $image['description_raw'] . '</p>';
       $tags = str_replace(' ', ',', trim(str_replace($tag, '', $image['tags'])));
       $postdata = array(
